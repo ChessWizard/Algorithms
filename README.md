@@ -1,3 +1,3 @@
 # Algorithms
 
-LeetCode, Hackerrank, Codewars etc. algorithm solutions with custom unit tests.
+LeetCode, Hackerrank, Codewars etc. algorithm solutions using C# with custom unit tests.
