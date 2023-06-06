@@ -95,7 +95,11 @@ namespace Algorithms.LeetCode.API.DataManager
 
                 if(pairList.Any(x => x.Key == target - number))
                 {
-                    return new[] { pairList.FindIndex(x => x.Key == target - number), i };
+                    // for duplicate values -> EX: [1,1,1,1,1,4,1,1,1,1,1,7,1,1,1,1,1]
+                    var keyValue = pairList.Where(x => x.Key == target - number).Select(x => x.Key).First();
+                    var keyIndex = Array.FindIndex(nums, x => x == keyValue);
+
+                    return new[] { keyIndex , i };
                 }
 
                 if(!pairList.Any(x => x.Key == number))
