@@ -19,11 +19,24 @@ namespace Algorithms.LeetCode.API.Controllers
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        [HttpGet("romanToInt")]
+        [HttpPost("romanToInt")]
         public IActionResult RomanToInt(string word)
         {
             var result = _easyLevel.RomanToInt(word);
             return result > 0 ? Ok(result) : BadRequest("Wrong input!");
+        }
+
+        /// <summary>
+        /// Two Sum -> https://leetcode.com/problems/two-sum/
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        [HttpPost("twoSum")]
+        public IActionResult TwoSum(int[] nums, int target)
+        {
+            var result = _easyLevel.TwoSum(nums, target);
+            return result is null ? BadRequest("Wrong input!") : Ok(result);
         }
     }
 }

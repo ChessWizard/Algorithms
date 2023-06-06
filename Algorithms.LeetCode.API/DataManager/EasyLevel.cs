@@ -1,4 +1,5 @@
 ﻿using Algorithms.LeetCode.API.DataManager.Interfaces;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace Algorithms.LeetCode.API.DataManager
 {
@@ -35,7 +36,7 @@ namespace Algorithms.LeetCode.API.DataManager
             }
 
             var substract = CheckSpecialRomanConditions(word);
-            if(substract > 0) value -= substract;
+            if (substract > 0) value -= substract;
 
             if (value < 1 || value > 3999) return 0;
 
@@ -75,6 +76,60 @@ namespace Algorithms.LeetCode.API.DataManager
             }
 
             return substractValue;
+        }
+
+        public int[] TwoSum(int[] nums, int target)
+        {
+            var length = nums.Length;
+            if (length < 2 || length > 10000) return null;
+
+            #region O(n) Solution - Performance Way
+
+            // O(n) solution contains just one loop
+            // so we should use key value list to iterate -> we can use keyvaluepair list or dictionary
+            List<KeyValuePair<int, int>> pairList = new();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var number = nums[i];
+
+                if(pairList.Any(x => x.Key == target - number))
+                {
+                    return new[] { pairList.FindIndex(x => x.Key == target - number), i };
+                }
+
+                if(!pairList.Any(x => x.Key == number))
+                {
+                    pairList.Add(new(number,i));
+                }
+            }
+            return null;
+
+            #endregion
+
+            #region O(n ^ 2) Solution - Less Performance
+
+            // Classical way = O(n ^ 2) solution contains two nested loops -> less performance
+            //var targetIndexes = new int[2];
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    for (int j = 1; j < nums.Length; j++)
+            //    {
+            //        var currentNumber = nums[i];
+            //        var compareNumber = nums[j];
+            //        var isEqualsToTarget = target == (currentNumber + compareNumber);
+
+            //        if (isEqualsToTarget)
+            //        {
+            //            targetIndexes[0] = Array.FindIndex(nums, x => x == currentNumber);
+            //            targetIndexes[1] = Array.FindIndex(nums, x => x == compareNumber);
+            //        }
+            //    }
+            //}
+            //return targetIndexes;
+
+            #endregion
+
         }
     }
 }
