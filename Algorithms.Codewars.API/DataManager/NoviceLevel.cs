@@ -29,5 +29,43 @@ namespace Algorithms.Codewars.API.DataManager
 
             return true;
         }
+
+        public int[] MakeTheDeadfishSwim(string data)
+        {
+            string charset = "idso";
+
+            // constraint check
+            if (data.Any(x => !charset.Contains(x))) return null;
+
+            int initialValue = 0;
+            List<int> valueList = new();
+
+            foreach (var item in data)
+            {
+                // check options using switch -> best practise
+                switch (item)
+                {
+                    case 'i':
+                        initialValue++;
+                        break;
+
+                    case 'd':
+                        initialValue--;
+                        break;
+
+                    case 's':
+                        initialValue = Convert.ToInt32(Math.Pow(initialValue, 2));// assign squared value as current
+                        break;
+
+                    case 'o':
+                        valueList.Add(initialValue);
+                        break;
+                        
+                    default:
+                        break;
+                }
+            }
+            return valueList.ToArray();
+        }
     }
 }

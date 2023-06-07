@@ -23,7 +23,19 @@ namespace Algorithms.Codewars.API.Controllers
         public IActionResult IsValidIP([FromBody]string ip)
         {
             var result = _noviceLevel.IsValidIP(ip);
-            return Ok(result);
+            return result ? Ok(result) : BadRequest("Wrong Input!");
+        }
+
+        /// <summary>
+        /// Make The Deadfish Swim -> https://www.codewars.com/kata/51e0007c1f9378fa810002a9/train/csharp
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        [HttpPost("makeTheDeadfishSwim")]
+        public IActionResult MakeTheDeadfishSwim([FromBody]string data)
+        {
+            var result = _noviceLevel.MakeTheDeadfishSwim(data);
+            return result.Any() ? Ok(result) : BadRequest("Wrong Input!");
         }
     }
 }

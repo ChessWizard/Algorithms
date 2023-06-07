@@ -3,5 +3,7 @@
     public interface INoviceLevel
     {
         bool IsValidIP(string ipAddres);
+
+        int[] MakeTheDeadfishSwim(string data);
     }
 }
