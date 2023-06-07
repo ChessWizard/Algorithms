@@ -6,11 +6,18 @@ namespace Algorithms.Codewars.API.DataManager
     {
         public bool IsValidIP(string ipAddres)
         {
-            if(string.IsNullOrEmpty(ipAddres)) return false;
+            /* Examples of valid inputs: 4 octet, [0,255]
+                1.2.3.4
+                123.45.67.89
+             */
+
+            if (string.IsNullOrEmpty(ipAddres)) return false;
 
             var octets = ipAddres.Split('.');
 
-            var isValidCharacters = octets.SelectMany(x => x.Select(y => y)).All(char.IsDigit);// is all digit
+            if (octets.Contains("")) return false;// not equals to null string -> For EX: "." -> split -> "","" | "123.342.23." -> "123","342","23",""
+
+            var isValidCharacters = octets.SelectMany(x => x.Select(y => y)).All(char.IsDigit);// is all digit and 
 
             if (!isValidCharacters || octets.Length != 4) return false;
 
