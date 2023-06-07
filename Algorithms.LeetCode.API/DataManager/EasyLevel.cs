@@ -1,5 +1,7 @@
 ﻿using Algorithms.LeetCode.API.DataManager.Interfaces;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections;
 
 namespace Algorithms.LeetCode.API.DataManager
 {
@@ -134,6 +136,42 @@ namespace Algorithms.LeetCode.API.DataManager
 
             #endregion
 
+        }
+
+        public bool IsValidParantheses(string s)
+        {
+            // use Stack sorted and same length values
+            Stack stack = new();
+            var openCharSet = "([{".ToCharArray();
+            var closeCharSet = ")]}".ToCharArray();
+
+            // invalid char check
+            var allCharacters = openCharSet.Concat(closeCharSet).ToList();
+            var isValid = !s.Any(x => !allCharacters.Contains(x));
+            var length = s.Length;
+
+            if (!isValid) return false;
+
+            foreach (var item in s.ToCharArray())
+            {
+                var itemIndex = Array.FindIndex(closeCharSet, x => x == item);
+
+                // open char set -> push()
+                if (openCharSet.Any(x => x == item))
+                {
+                    stack.Push(item);
+                }
+
+                // if we see close char -> pop()
+                else if (closeCharSet.Any(x => x == item)
+                            && stack?.Count is not 0
+                            && Convert.ToChar(stack.Peek()) == Convert.ToChar(openCharSet.GetValue(itemIndex)))
+                                stack.Pop();
+                else return false;
+            }
+
+            // Stack must be empty if all items matched
+            return stack?.Count > 0 ? false : true;
         }
     }
 }

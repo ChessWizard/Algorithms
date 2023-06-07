@@ -8,6 +8,7 @@ namespace Algorithms.LeetCode.API.ServiceRegistrations
         public static IServiceCollection AddLevelServices(this IServiceCollection services)
         {
             services.AddScoped<IEasyLevel, EasyLevel>();
+            services.AddScoped<IMediumLevel, MediumLevel>();
             return services;
         }
     }

@@ -5,5 +5,7 @@
         int RomanToInt(string word);
 
         int[] TwoSum(int[] nums, int target);
+
+        bool IsValidParantheses(string s);
     }
 }
