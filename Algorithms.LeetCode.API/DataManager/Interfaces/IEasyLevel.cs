@@ -7,5 +7,7 @@
         int[] TwoSum(int[] nums, int target);
 
         bool IsValidParantheses(string s);
+
+        string LongestCommonPrefix(string[] strs)
     }
 }

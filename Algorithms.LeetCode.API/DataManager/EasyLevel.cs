@@ -173,6 +173,51 @@ namespace Algorithms.LeetCode.API.DataManager
             // Stack must be empty if all items matched
             return stack?.Count > 0 ? false : true;
         }
+
+        public string LongestCommonPrefix(string[] strs)
+        {
+            //var length = strs.Length;
+
+            //if (length < 1 || length > 200) return string.Empty;
+
+            //// convert to lineer for O(n)
+            ////var allCharacters = strs.SelectMany(x => x)
+            ////                        .ToList();
+
+            ////SortedList<int, char> sortedList = new();
+            ////foreach (var item in allCharacters)
+            ////{
+            ////    int alphabeticallyIndex = char.ToUpper(item) - 64;// convert to alphebetical position to compare others
+            ////    if (!sortedList.ContainsKey(alphabeticallyIndex))
+            ////    {
+            ////        sortedList.Add(alphabeticallyIndex, item);
+            ////    }
+            ////}
+
+            //Dictionary<int, char> dictionary = new();// array index , item
+            //foreach (var item in strs)
+            //{
+            //    if (!dictionary.Any())
+            //    {
+            //        foreach (var ch in item)
+            //        {
+            //            int charIndex = Array.FindIndex(item.ToCharArray(), x => x == ch);
+            //            dictionary.Add(charIndex, ch);
+            //        }
+            //        continue;
+            //    }
+
+            //    // hepsi 
+            //    foreach (var ch in item)
+            //    {
+            //        if (dictionary.ContainsValue(ch))
+            //        {
+
+            //        }
+            //    }
+            //}
+            return "";
+        }
     }
 }
 

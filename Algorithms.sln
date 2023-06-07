@@ -5,9 +5,15 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCode", "LeetCode", "{31C3AE13-A0BF-4B59-8CD0-27BFC2C5A1E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.LeetCode.Test", "Algorithms.LeetCode.Test\Algorithms.LeetCode.Test.csproj", "{58CCAC94-00CE-4E4E-8261-8F3C68216718}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.LeetCode.Test", "Algorithms.LeetCode.Test\Algorithms.LeetCode.Test.csproj", "{58CCAC94-00CE-4E4E-8261-8F3C68216718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.LeetCode.API", "Algorithms.LeetCode.API\Algorithms.LeetCode.API.csproj", "{EBC6D0AD-0763-4503-83C3-EDA624F4C59C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.LeetCode.API", "Algorithms.LeetCode.API\Algorithms.LeetCode.API.csproj", "{EBC6D0AD-0763-4503-83C3-EDA624F4C59C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Codewars", "Codewars", "{D592D4F4-ADE2-43C1-9E71-59422C1FB76F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Codewars.API", "Algorithms.Codewars.API\Algorithms.Codewars.API.csproj", "{7077F147-74DC-4488-80B5-70A0C0D1F94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Codewars.Test", "Algorithms.Codewars.Test\Algorithms.Codewars.Test.csproj", "{78864F93-29D6-458F-AE16-9E64DCB0F0BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,14 @@ Global
 		{EBC6D0AD-0763-4503-83C3-EDA624F4C59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC6D0AD-0763-4503-83C3-EDA624F4C59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC6D0AD-0763-4503-83C3-EDA624F4C59C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7077F147-74DC-4488-80B5-70A0C0D1F94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7077F147-74DC-4488-80B5-70A0C0D1F94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7077F147-74DC-4488-80B5-70A0C0D1F94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7077F147-74DC-4488-80B5-70A0C0D1F94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78864F93-29D6-458F-AE16-9E64DCB0F0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78864F93-29D6-458F-AE16-9E64DCB0F0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78864F93-29D6-458F-AE16-9E64DCB0F0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78864F93-29D6-458F-AE16-9E64DCB0F0BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{58CCAC94-00CE-4E4E-8261-8F3C68216718} = {31C3AE13-A0BF-4B59-8CD0-27BFC2C5A1E2}
 		{EBC6D0AD-0763-4503-83C3-EDA624F4C59C} = {31C3AE13-A0BF-4B59-8CD0-27BFC2C5A1E2}
+		{7077F147-74DC-4488-80B5-70A0C0D1F94B} = {D592D4F4-ADE2-43C1-9E71-59422C1FB76F}
+		{78864F93-29D6-458F-AE16-9E64DCB0F0BB} = {D592D4F4-ADE2-43C1-9E71-59422C1FB76F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CAAED43A-DCE1-4D4C-B7AC-350C60F7F78E}
