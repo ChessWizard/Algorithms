@@ -39,6 +39,11 @@ namespace Algorithms.LeetCode.API.Controllers
             return result is null ? BadRequest("Wrong input!") : Ok(result);
         }
 
+        /// <summary>
+        /// Is Valid Parantheses -> https://leetcode.com/problems/valid-parentheses/
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         [HttpPost("isValidParantheses")]
         public IActionResult IsValidParantheses([FromBody] string s)
         {
