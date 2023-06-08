@@ -5,5 +5,9 @@
         bool IsValidIP(string ipAddres);
 
         int[] MakeTheDeadfishSwim(string data);
+
+        string GetReadableTime(int seconds);
+
+        int DuplicateCount(string str);
     }
 }

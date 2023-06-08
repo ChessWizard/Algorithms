@@ -67,5 +67,31 @@ namespace Algorithms.Codewars.API.DataManager
             }
             return valueList.ToArray();
         }
+
+        public string GetReadableTime(int seconds)
+        {
+            return "";
+        }
+
+        public int DuplicateCount(string str)
+        {
+            // constraints
+            if (string.IsNullOrEmpty(str)) return 0;
+
+            // using one dot per line rule
+            var isAllUnique = !str.GroupBy(x => x)
+                                  .Any(x => x.Count() > 1);// Find if any grouped data has been repeated more than once
+            
+            var isValidContent = str.All(char.IsLetterOrDigit);// it can contains letter or digit
+
+            if(!isValidContent || isAllUnique) return 0;
+
+            var beCaseInsensitive = str.ToLower();// counting case insensitive
+
+            return beCaseInsensitive.GroupBy(x => x)
+                                    .Where(x => x.Count() > 1)
+                                    .ToList()
+                                    .Count();
+        }
     }
 }

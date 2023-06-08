@@ -37,5 +37,25 @@ namespace Algorithms.Codewars.API.Controllers
             var result = _noviceLevel.MakeTheDeadfishSwim(data);
             return result.Any() ? Ok(result) : BadRequest("Wrong Input!");
         }
+
+
+        [HttpPost("humanReadableTime")]
+        public IActionResult HumanReadableTime([FromBody] int seconds)
+        {
+            var result = _noviceLevel.GetReadableTime(seconds);
+            return !string.IsNullOrEmpty(result) ? Ok(result) : BadRequest("Wrong Input!");
+        }
+
+        /// <summary>
+        /// Counting Duplicates -£ https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/train/csharp
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        [HttpPost("countingDuplicates")]
+        public IActionResult CountingDuplicates([FromBody] string data)
+        {
+            var result = _noviceLevel.DuplicateCount(data);
+            return result is 0 ? BadRequest("Sorry! All unique.") : Ok(result);
+        }
     }
 }
