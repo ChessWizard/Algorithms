@@ -129,11 +129,10 @@ namespace Algorithms.Codewars.API.DataManager
 
             // store original value(case sensitive) but order by case insensitive 
             // EX: sSTjfjsd -> Output : 'T' -> not 't' 
-            var firstNonRepeating = s.GroupBy(ch => ch.ToString(),StringComparer.OrdinalIgnoreCase)
+            var firstNonRepeating = s.GroupBy(ch => ch.ToString(), StringComparer.OrdinalIgnoreCase)
                                       .Where(g => g.Count() == 1)
                                       .Select(g => g.Key)
-                                      .FirstOrDefault()
-                                      .ToString();
+                                      .FirstOrDefault();
             return firstNonRepeating;
         }
     }
