@@ -11,5 +11,7 @@
         int DuplicateCount(string str);
 
         IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable);
+
+        string FirstNonRepeatingLetter(string s);
     }
 }

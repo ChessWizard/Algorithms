@@ -70,5 +70,17 @@ namespace Algorithms.Codewars.API.Controllers
             var result = _noviceLevel.UniqueInOrder(iterable);
             return !result.Any() ? BadRequest("Wrong input!") : Ok(result);
         }
+
+        /// <summary>
+        /// First NonRepeating Letter -> https://www.codewars.com/kata/52bc74d4ac05d0945d00054e/train/csharp
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [HttpPost("firstNonRepeatingLetter")]
+        public IActionResult FirstNonRepeatingLetter(string s)
+        {
+            var result = _noviceLevel.FirstNonRepeatingLetter(s);
+            return string.IsNullOrEmpty(result) ? BadRequest("Wrong input!") : Ok(result);
+        }
     }
 }

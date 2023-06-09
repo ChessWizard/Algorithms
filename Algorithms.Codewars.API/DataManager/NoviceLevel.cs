@@ -116,5 +116,25 @@ namespace Algorithms.Codewars.API.DataManager
             }
             return uniqueList;
         }
+
+        public string FirstNonRepeatingLetter(string s)
+        {
+            var beCaseInsensitive = s.ToLower();
+            var isAllRepeating = beCaseInsensitive.GroupBy(x => x)
+                                                  .All(g => g.Count() > 1);
+            
+            if(isAllRepeating) return string.Empty;
+
+            if(s.Length is 1) return s;
+
+            // store original value(case sensitive) but order by case insensitive 
+            // EX: sSTjfjsd -> Output : 'T' -> not 't' 
+            var firstNonRepeating = s.GroupBy(ch => ch.ToString(),StringComparer.OrdinalIgnoreCase)
+                                      .Where(g => g.Count() == 1)
+                                      .Select(g => g.Key)
+                                      .FirstOrDefault()
+                                      .ToString();
+            return firstNonRepeating;
+        }
     }
 }
