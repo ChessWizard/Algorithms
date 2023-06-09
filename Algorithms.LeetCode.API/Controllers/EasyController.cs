@@ -33,7 +33,7 @@ namespace Algorithms.LeetCode.API.Controllers
         /// <param name="target"></param>
         /// <returns></returns>
         [HttpPost("twoSum")]
-        public IActionResult TwoSum([FromBody]int[] nums,[FromBody] int target)
+        public IActionResult TwoSum([FromBody]int[] nums, int target)
         {
             var result = _easyLevel.TwoSum(nums, target);
             return result is null ? BadRequest("Wrong input!") : Ok(result);

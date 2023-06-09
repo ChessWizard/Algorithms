@@ -57,5 +57,18 @@ namespace Algorithms.Codewars.API.Controllers
             var result = _noviceLevel.DuplicateCount(data);
             return result is 0 ? BadRequest("Sorry! All unique.") : Ok(result);
         }
+        
+        /// <summary>
+        /// Unique In Order -> https://www.codewars.com/kata/54e6533c92449cc251001667/train/csharp
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="iterable"></param>
+        /// <returns></returns>
+        [HttpPost("uniqueInOrder")]
+        public IActionResult UniqueInOrder([FromBody] string iterable)
+        {
+            var result = _noviceLevel.UniqueInOrder(iterable);
+            return !result.Any() ? BadRequest("Wrong input!") : Ok(result);
+        }
     }
 }

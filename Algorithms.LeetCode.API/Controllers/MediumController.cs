@@ -26,5 +26,12 @@ namespace Algorithms.LeetCode.API.Controllers
             var result = _mediumLevel.LengthOfLongestSubstring(s);
             return Ok(result);
         }
+
+        [HttpPost("canJump")]
+        public IActionResult CanJump(int[] nums)
+        {
+            var result = _mediumLevel.CanJump(nums);
+            return result ? Ok(result) : BadRequest("Wrong input!");
+        }
     }
 }

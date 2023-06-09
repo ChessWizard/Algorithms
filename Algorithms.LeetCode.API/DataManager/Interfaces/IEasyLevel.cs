@@ -8,6 +8,6 @@
 
         bool IsValidParantheses(string s);
 
-        string LongestCommonPrefix(string[] strs)
+        string LongestCommonPrefix(string[] strs);
     }
 }

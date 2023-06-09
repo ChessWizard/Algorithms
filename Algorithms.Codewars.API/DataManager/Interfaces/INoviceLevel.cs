@@ -9,5 +9,7 @@
         string GetReadableTime(int seconds);
 
         int DuplicateCount(string str);
+
+        IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable);
     }
 }

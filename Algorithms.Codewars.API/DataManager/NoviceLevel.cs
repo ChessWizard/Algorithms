@@ -93,5 +93,28 @@ namespace Algorithms.Codewars.API.DataManager
                                     .ToList()
                                     .Count();
         }
+
+        public IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
+        {
+            if(!iterable.Any()) return Enumerable.Empty<T>();// don't return null for best practise
+
+            var list = iterable.ToList();
+
+            List<T> uniqueList = new();
+            for (int i = 1; i < list.Count(); i++)
+            {
+                var isUniqueItem = list[i-1];
+
+                // first item added
+                if(!uniqueList.Any()) uniqueList.Add(isUniqueItem);
+
+                if(isUniqueItem.Equals(list[i]))
+                {
+                    continue;
+                }
+                uniqueList.Add(list[i]);
+            }
+            return uniqueList;
+        }
     }
 }
