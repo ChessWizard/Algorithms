@@ -82,5 +82,17 @@ namespace Algorithms.Codewars.API.Controllers
             var result = _noviceLevel.FirstNonRepeatingLetter(s);
             return string.IsNullOrEmpty(result) ? BadRequest("Wrong input!") : Ok(result);
         }
+
+        /// <summary>
+        /// To Weird Case -> https://www.codewars.com/kata/52b757663a95b11b3d00062d/train/csharp
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        [HttpPost("toWeirdCase")]
+        public IActionResult ToWeirdCase(string s)
+        {
+            var result = _noviceLevel.ToWeirdCase(s);
+            return string.IsNullOrEmpty(result) ? BadRequest("Wrong input!") : Ok(result);
+        }
     }
 }

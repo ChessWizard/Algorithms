@@ -1,4 +1,6 @@
 ﻿using Algorithms.Codewars.API.DataManager.Interfaces;
+using System.Globalization;
+using System.Text;
 
 namespace Algorithms.Codewars.API.DataManager
 {
@@ -134,6 +136,37 @@ namespace Algorithms.Codewars.API.DataManager
                                       .Select(g => g.Key)
                                       .FirstOrDefault();
             return firstNonRepeating;
+        }
+
+        public string ToWeirdCase(string s)
+        {
+            if(s.All(char.IsWhiteSpace)) return s;
+
+            var words = s.Split(' ');
+
+            StringBuilder builder = new();
+            List<string> list = new();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                var word = words[i];
+
+                for (int j = 0; j < word.Length; j++)
+                {
+                    var character = word[j];
+
+                    if(j % 2 != 0)
+                        character = char.ToLower(character, CultureInfo.GetCultureInfo("en-GB"));
+
+                    if (j % 2 == 0)
+                        character = char.ToUpper(character, CultureInfo.GetCultureInfo("en-GB"));// get global culture for string. EX: İ -> I
+                    
+                    // append new form
+                    builder.Append(character);
+                }
+                builder.Append(' ');
+            }
+            return builder.ToString().TrimEnd();
         }
     }
 }

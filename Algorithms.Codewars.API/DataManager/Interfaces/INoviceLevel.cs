@@ -13,5 +13,7 @@
         IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable);
 
         string FirstNonRepeatingLetter(string s);
+
+        string ToWeirdCase(string s);
     }
 }
