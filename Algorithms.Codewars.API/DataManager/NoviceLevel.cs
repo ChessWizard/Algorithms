@@ -168,5 +168,58 @@ namespace Algorithms.Codewars.API.DataManager
             }
             return builder.ToString().TrimEnd();
         }
+
+        public string Rot13(string message)
+        {
+            // TODO: Refactor Code Duplications
+
+            var changableLowercaseCharset = "abcdefghijklmnopqrstuvwxyz";
+
+            var changableUppercaseCharset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            StringBuilder builder = new();
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                var character = message[i];
+                int changingCharIndex = 0;
+                int leftoverValue = 0;
+                char replaceCharacter;
+
+                // for lowercases
+                if (changableLowercaseCharset.Contains(character))
+                {
+                    changingCharIndex = changableLowercaseCharset.Where(x => x == character).Select(x => changableLowercaseCharset.IndexOf(x)).FirstOrDefault();
+                    leftoverValue = (changingCharIndex + 13) % 26;
+
+                    if (leftoverValue is 0)
+                    {
+                        replaceCharacter = changableLowercaseCharset.Skip(changingCharIndex + 13).FirstOrDefault();
+                        character = replaceCharacter is '\0' ? 'a' : replaceCharacter; // EX: ...4...26 -> 4 + 13 -> OUTPUT: 17
+                    }
+                        
+                    else
+                        character = changableLowercaseCharset.Skip(leftoverValue).FirstOrDefault();// start beginning and skip EX: ...20...26 -> 20 + 13 -> OUTPUT: 7
+                }
+
+                // for uppercases
+                if (changableUppercaseCharset.Contains(character))
+                {
+                    changingCharIndex = changableUppercaseCharset.Where(x => x == character).Select(x => changableUppercaseCharset.IndexOf(x)).FirstOrDefault();
+                    leftoverValue = (changingCharIndex + 13) % 26;
+
+                    if (leftoverValue is 0)
+                    {
+                        replaceCharacter = changableUppercaseCharset.Skip(changingCharIndex + 13).FirstOrDefault();
+                        character = replaceCharacter is '\0' ? 'A' : replaceCharacter;
+                    }
+                        
+                    else
+                        character = changableUppercaseCharset.Skip(leftoverValue).FirstOrDefault();
+                }
+                builder.Append(character);
+            }
+            return builder.ToString();
+        }
     }
 }

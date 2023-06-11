@@ -94,5 +94,12 @@ namespace Algorithms.Codewars.API.Controllers
             var result = _noviceLevel.ToWeirdCase(s);
             return string.IsNullOrEmpty(result) ? BadRequest("Wrong input!") : Ok(result);
         }
+
+        [HttpPost("rot13")]
+        public IActionResult Rot13(string message)
+        {
+            var result = _noviceLevel.Rot13(message);
+            return string.IsNullOrEmpty(result) ? BadRequest("Wrong input!") : Ok(result);
+        }
     }
 }

@@ -15,5 +15,7 @@
         string FirstNonRepeatingLetter(string s);
 
         string ToWeirdCase(string s);
+
+        string Rot13(string message);
     }
 }
