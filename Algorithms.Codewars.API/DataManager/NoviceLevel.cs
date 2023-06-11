@@ -211,7 +211,7 @@ namespace Algorithms.Codewars.API.DataManager
                     if (leftoverValue is 0)
                     {
                         replaceCharacter = changableUppercaseCharset.Skip(changingCharIndex + 13).FirstOrDefault();
-                        character = replaceCharacter is '\0' ? 'A' : replaceCharacter;
+                        character = replaceCharacter is '\0' ? 'A' : replaceCharacter;// added condition for return beginning
                     }
                         
                     else
